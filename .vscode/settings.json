@@ -1,0 +1,52 @@
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.tabSize": 2,
+  "editor.wordWrap": "on",
+  "editor.inlineSuggest.enabled": true,
+  "editor.suggestSelection": "first",
+
+  "github.copilot.enable": {
+    "*": true,
+    "markdown": true,
+    "astro": true,
+    "typescript": true
+  },
+  "github.copilot.chat.localeOverride": "en",
+
+  "[astro]": {
+    "editor.defaultFormatter": "astro-build.astro-vscode"
+  },
+  "[typescript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "[json]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "tailwindCSS.experimental.classRegex": [
+    ["clsx\\(([^)]*)\\)", "(?:'|\"|`)([^']*)(?:'|\"|`)"]
+  ],
+  "tailwindCSS.includeLanguages": {
+    "astro": "html"
+  },
+
+  "files.associations": {
+    "*.astro": "astro"
+  },
+  "files.exclude": {
+    "node_modules": true,
+    ".astro": true,
+    "dist": true
+  },
+
+  "explorer.fileNesting.enabled": true,
+  "explorer.fileNesting.patterns": {
+    "astro.config.*": "astro.config.*",
+    "tailwind.config.*": "tailwind.config.*",
+    "package.json": "package-lock.json, .npmrc, .nvmrc"
+  },
+
+  "emmet.includeLanguages": {
+    "astro": "html"
+  }
+}

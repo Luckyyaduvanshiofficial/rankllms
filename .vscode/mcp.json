@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "daisyUI": {
+      "type": "sse",
+      "url": "https://gitmcp.io/saadeghi/daisyui"
+    },
+    "stitch": {
+      "url": "https://stitch.googleapis.com/mcp",
+      "type": "http",
+      "headers": {
+        "Accept": "application/json",
+        "X-Goog-Api-Key": "${GOOGLE_API_KEY}"
+      }
+    }
+  }
+}
