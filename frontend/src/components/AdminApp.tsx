@@ -134,7 +134,7 @@ function LoginForm({ apiUrl, onLogin }: { apiUrl: string; onLogin: (token: strin
             {loading ? 'Signing in...' : 'Sign In'}
           </button>
         </form>
-        <p className="text-center text-xs mt-4" style={{ color: '#52525b' }}>Default: admin@rankllms.com / Admin123!</p>
+        <p className="text-center text-xs mt-4" style={{ color: '#52525b' }}>Contact your administrator for access credentials</p>
       </div>
     </div>
   );
