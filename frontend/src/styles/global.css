@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@theme {
+  --font-heading: 'Geist', 'Inter', system-ui, sans-serif;
+  --font-body: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace;
+
+  --color-dark: #1a1a1a;
+  --color-surface: #222222;
+  --color-surface-2: #2a2a2a;
+  --color-border: rgba(255, 255, 255, 0.1);
+  --color-orange: #f26e2a;
+  --color-orange-hover: #d95a1e;
+  --color-teal: #14b8a6;
+  --color-blue: #3b82f6;
+  --color-purple: #8b5cf6;
+  --color-pink: #ec4899;
+  --color-green: #22c55e;
+  --color-text: #ffffff;
+  --color-text-muted: #a1a1aa;
+  --color-text-subtle: #71717a;
+
+  --color-blog-bg: #F8F7F4;
+  --color-blog-surface: #FFFFFF;
+  --color-blog-border: rgba(0, 0, 0, 0.08);
+  --color-blog-text: #111827;
+  --color-blog-muted: #4B5563;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+}
+
+/* Blog prose styles */
+.blog-content h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #111827;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+}
+
+.blog-content p {
+  color: #374151;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+  font-size: 1.0625rem;
+}
+
+.blog-content strong {
+  color: #111827;
+  font-weight: 600;
+}
+
+.blog-content br {
+  display: block;
+  content: '';
+  margin-top: 0.5rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}

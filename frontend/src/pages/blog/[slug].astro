@@ -1,0 +1,115 @@
+---
+export const prerender = false;
+
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+
+const { slug } = Astro.params;
+const apiUrl = import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+
+let post: any = null;
+let notFound = false;
+
+try {
+  const res = await fetch(`${apiUrl}/api/blog/${slug}`);
+  if (res.ok) {
+    post = await res.json();
+  } else {
+    notFound = true;
+  }
+} catch {
+  notFound = true;
+}
+
+function formatDate(d: string) {
+  return new Date(d).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+}
+---
+
+<BaseLayout
+  title={post ? `${post.title} | RankLLMs Blog` : 'Post Not Found | RankLLMs'}
+  description={post?.excerpt || ''}
+  theme="light"
+>
+  <Navbar />
+
+  <main class="pt-16" style="background-color: #F8F7F4; min-height: 100vh;">
+    {notFound ? (
+      <div class="max-w-3xl mx-auto px-6 py-32 text-center">
+        <h1 class="text-4xl font-bold mb-4" style="color: #111827; font-family: 'Inter', sans-serif;">Post not found</h1>
+        <p class="mb-8" style="color: #6B7280;">The post you're looking for doesn't exist or has been removed.</p>
+        <a href="/blog" class="px-6 py-3 rounded-lg text-white font-semibold" style="background-color: #f26e2a;">
+          Back to Blog
+        </a>
+      </div>
+    ) : post ? (
+      <article class="max-w-3xl mx-auto px-6 py-16">
+
+        <!-- Back link -->
+        <a href="/blog" class="inline-flex items-center gap-2 text-sm mb-8 transition-colors" style="color: #6B7280;" data-testid="back-to-blog">
+          <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          Back to Blog
+        </a>
+
+        <!-- Category + meta -->
+        <div class="flex items-center gap-3 mb-6">
+          <span class="px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider" style="background: rgba(242,110,42,0.1); color: #f26e2a; border: 1px solid rgba(242,110,42,0.2);">
+            {post.category}
+          </span>
+          <span class="text-sm" style="color: #9CA3AF;">{formatDate(post.published_at)} · {post.read_time} min read</span>
+        </div>
+
+        <!-- Title -->
+        <h1 class="text-4xl sm:text-5xl font-black tracking-tight mb-6 leading-tight" style="color: #111827; font-family: 'Inter', sans-serif;">
+          {post.title}
+        </h1>
+
+        <!-- Excerpt -->
+        <p class="text-xl leading-relaxed mb-8" style="color: #4B5563;">
+          {post.excerpt}
+        </p>
+
+        <!-- Hero image -->
+        {post.image_url && (
+          <div class="rounded-2xl overflow-hidden mb-12" style="aspect-ratio: 16/9;">
+            <img
+              src={post.image_url}
+              alt={post.title}
+              class="w-full h-full object-cover"
+              loading="eager"
+            />
+          </div>
+        )}
+
+        <!-- Author -->
+        <div class="flex items-center gap-3 mb-12 pb-12" style="border-bottom: 1px solid rgba(0,0,0,0.08);">
+          <div class="w-10 h-10 rounded-full flex items-center justify-center text-white font-bold text-sm" style="background: linear-gradient(135deg, #f26e2a, #14b8a6);">
+            R
+          </div>
+          <div>
+            <p class="font-semibold text-sm" style="color: #111827;">{post.author}</p>
+            <p class="text-xs" style="color: #9CA3AF;">{formatDate(post.published_at)}</p>
+          </div>
+        </div>
+
+        <!-- Content -->
+        <div class="blog-content" set:html={post.content} />
+
+        <!-- Back CTA -->
+        <div class="mt-16 pt-8" style="border-top: 1px solid rgba(0,0,0,0.08);">
+          <a href="/blog" class="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-white font-semibold transition-colors" style="background-color: #f26e2a;">
+            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+              <path d="M10 3L5 8l5 5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            More Articles
+          </a>
+        </div>
+      </article>
+    ) : null}
+  </main>
+
+  <Footer />
+</BaseLayout>

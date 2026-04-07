@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Navbar from '../../components/Navbar.astro';
+import Footer from '../../components/Footer.astro';
+import AdminApp from '../../components/AdminApp';
+
+const apiUrl = import.meta.env.REACT_APP_BACKEND_URL || 'http://localhost:8001';
+---
+
+<BaseLayout title="Admin Dashboard | RankLLMs" theme="dark">
+  <Navbar />
+  <main class="pt-16" style="min-height: 100vh; background-color: #1a1a1a;">
+    <AdminApp client:load apiUrl={apiUrl} />
+  </main>
+  <Footer />
+</BaseLayout>
