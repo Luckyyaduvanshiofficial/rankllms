@@ -1,0 +1,153 @@
+{
+  "theme_and_archetype": {
+    "domain": "AI Developer Tools & SaaS",
+    "primary_archetype": "Archetype 4 (Swiss & High-Contrast) + E1 Modifications",
+    "themes": {
+      "leaderboard_and_admin": "Dark Theme (Primary)",
+      "blog": "Light Theme (Cream)"
+    },
+    "vibe": "Vercel, Stripe, Vellum - Premium, Data-heavy, Minimalist, Highly Readable"
+  },
+  "typography": {
+    "rules": {
+      "body": "Inter (as requested by user)",
+      "headings": "Cabinet Grotesk or Geist (E1 Anti-Default Rule: Inter prohibited for headings)",
+      "mono": "JetBrains Mono (for code, benchmarks, numerical data)",
+      "hierarchy": {
+        "h1": "text-4xl sm:text-5xl lg:text-6xl tracking-tighter font-black",
+        "h2": "text-2xl sm:text-3xl lg:text-4xl tracking-tight font-bold",
+        "h3": "text-xl sm:text-2xl tracking-tight font-semibold",
+        "body": "text-base leading-relaxed text-gray-300 (Dark) / text-gray-700 (Light)",
+        "small": "text-sm text-gray-400 (Dark) / text-gray-500 (Light)"
+      }
+    }
+  },
+  "colors": {
+    "dark_theme": {
+      "background": "#1a1a1a",
+      "surface": "#222222",
+      "surface_hover": "#2a2a2a",
+      "border": "rgba(255,255,255,0.1)",
+      "text_primary": "#FFFFFF",
+      "text_secondary": "#A1A1AA",
+      "accent_primary": "#f26e2a",
+      "accent_secondary": "#14b8a6",
+      "chart_bars": ["#f26e2a", "#14b8a6", "#3b82f6", "#8b5cf6"]
+    },
+    "light_theme": {
+      "background": "#F8F7F4",
+      "surface": "#FFFFFF",
+      "surface_hover": "#F3F4F6",
+      "border": "rgba(0,0,0,0.1)",
+      "text_primary": "#111827",
+      "text_secondary": "#4B5563",
+      "accent_primary": "#f26e2a",
+      "accent_secondary": "#14b8a6",
+      "footer_background": "#1a1a1a",
+      "footer_text": "#FFFFFF"
+    }
+  },
+  "spacing_and_layout": {
+    "system": "Strict 8px (0.5rem) grid system",
+    "spacing_scale": {
+      "xs": "gap-2 / p-2 (8px)",
+      "sm": "gap-4 / p-4 (16px)",
+      "md": "gap-8 / p-8 (32px)",
+      "lg": "gap-12 / p-12 (48px)",
+      "xl": "gap-16 / p-16 (64px)"
+    },
+    "containers": "Use max-w-7xl mx-auto px-4 sm:px-6 lg:px-8",
+    "cards": {
+      "radius": "rounded-2xl",
+      "padding": "p-6 sm:p-8",
+      "shadow": "shadow-sm hover:shadow-md transition-shadow duration-200"
+    }
+  },
+  "components": {
+    "data_tables": {
+      "style": "Data-heavy SaaS style (SaaSFrame 2026 pattern)",
+      "header": "Sticky header, text-xs uppercase tracking-wider text-gray-400 border-b border-white/10 bg-[#1a1a1a]/95 backdrop-blur",
+      "rows": "Zebra striping (even:bg-white/5), hover:bg-white/10 transition-colors",
+      "numbers": "Right-aligned, tabular-nums for vertical decimal alignment",
+      "borders": "1px subtle bottom borders border-white/10"
+    },
+    "charts": {
+      "type": "Pure CSS/SVG based (NO external libraries like Recharts or Chart.js)",
+      "bar_charts": "Use flexbox with percentage widths and background colors (Orange/Teal)",
+      "sparklines": "Inline SVG paths with stroke-width 1.5"
+    },
+    "badges": {
+      "provider": "Colored initials (e.g., 'OA' for OpenAI with bg-green-500/20 text-green-400), rounded-md px-2 py-1 text-xs font-medium",
+      "category": "Pill shape (rounded-full) with subtle border, bg-white (in light theme) or bg-white/10 (in dark theme), hover:bg-[#f26e2a]/10 hover:text-[#f26e2a] transition-colors"
+    },
+    "buttons": {
+      "primary": "bg-[#f26e2a] hover:bg-[#d95a1e] text-white rounded-lg px-4 py-2 font-medium transition-colors",
+      "secondary": "bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-lg px-4 py-2 transition-colors (Dark mode)"
+    }
+  },
+  "pages": {
+    "llm_leaderboard": {
+      "theme": "Dark",
+      "sections": [
+        "Hero Section: text-center py-20, h1 title, subtitle, CTA to compare",
+        "Top Models Widgets: Bento grid, mini CSS bar charts, fastest/cheapest metric cards",
+        "Comparison Widget: Sticky or floating action bar to select 2+ models",
+        "Main Table: Sortable columns, fixed first column (model name), horizontal scroll on mobile",
+        "Benchmark Glossary: Accordion or grid of cards explaining MMLU, HumanEval, etc."
+      ]
+    },
+    "blog_listing": {
+      "theme": "Light (#F8F7F4)",
+      "sections": [
+        "Header: Clean typography, left-aligned",
+        "Filter Tabs: Scrollable horizontally on mobile. All / Comparisons / News / Guides / LLM Basics",
+        "3-Column Grid: md:grid-cols-2 lg:grid-cols-3 gap-8",
+        "Blog Cards: White bg, rounded-2xl, shadow-sm, image top, category pill overlay, title, excerpt, date/author",
+        "Pagination: Minimalist numbers and arrows",
+        "Footer: Dark mode (#1a1a1a) for stark contrast at the end"
+      ]
+    },
+    "blog_detail": {
+      "theme": "Light (#F8F7F4)",
+      "sections": [
+        "Article Layout: max-w-3xl mx-auto, large hero image",
+        "Typography: leading-relaxed, text-lg or text-xl for readability, generous paragraph spacing (mb-6)",
+        "Components: Inline code blocks (dark bg), blockquotes (left border orange)"
+      ]
+    },
+    "admin_dashboard": {
+      "theme": "Dark",
+      "sections": [
+        "Login: Minimalist centered card",
+        "Sidebar/Nav: Fixed left or top nav",
+        "CRUD Tables: Models and Posts management using the SaaS data table standard"
+      ]
+    }
+  },
+  "image_urls": [
+    {
+      "url": "https://images.unsplash.com/photo-1771011726574-60ab6028724a?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHw0fHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBncmlkfGVufDB8fHx8MTc3NTU0NDM3MXww&ixlib=rb-4.1.0&q=85",
+      "category": "hero_background",
+      "description": "Dark blue/black grid vertical lines (use with low opacity bg-black/80 overlay for Leaderboard Hero)"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1769120062289-15b5b8025abf?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA2MjJ8MHwxfHNlYXJjaHwzfHxhYnN0cmFjdCUyMHRlY2hub2xvZ3klMjBncmlkfGVufDB8fHx8MTc3NTU0NDM3MXww&ixlib=rb-4.1.0&q=85",
+      "category": "abstract_feature",
+      "description": "Green grid on light gray, use for AI content feature blocks"
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1756725519441-053290bd9058?crop=entropy&cs=srgb&fm=jpg&ixid=M3w4NjA1NzB8MHwxfHNlYXJjaHwxfHxtaW5pbWFsaXN0JTIwd29ya3NwYWNlJTIwbGlnaHQlMjBkZXNrfGVufDB8fHx8MTc3NTU0NDQwMXww&ixlib=rb-4.1.0&q=85",
+      "category": "blog_thumbnail",
+      "description": "Minimalist desk, rimless eyeglasses on notebook (good for placeholder blog post images)"
+    }
+  ],
+  "instructions_to_main_agent": [
+    "TECH STACK: Astro 6 + Tailwind CSS 4 + React islands + FastAPI + MongoDB. Provide React components compatible with Astro's island architecture.",
+    "NO EXTERNAL CHART LIBRARIES: Build all bar charts, comparison bars, and sparklines using pure CSS and SVGs.",
+    "TESTING ATTRIBUTES: Add 'data-testid' to ALL interactive elements (buttons, links, table headers, filter tabs) using kebab-case role-based names (e.g., 'model-sort-button').",
+    "THEME SEGREGATION: Leaderboard and Admin MUST be dark theme. Blog listing and detail MUST be light theme (#F8F7F4 bg). Footer in light theme must be dark.",
+    "FONT RULES: Use 'Inter' strictly for body copy. Use a premium sans-serif like 'Cabinet Grotesk' or 'Geist' for headings to maintain a high-end SaaS feel.",
+    "ACCESSIBILITY: Ensure text contrast in both modes (e.g. orange on dark grey). Use tabular-nums for numeric columns in the leaderboard.",
+    "SPACING: strictly adhere to 8px multiple scales (p-4, p-6, p-8, gap-8)."
+  ]
+}
