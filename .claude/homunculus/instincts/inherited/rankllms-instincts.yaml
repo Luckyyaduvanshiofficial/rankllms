@@ -1,0 +1,472 @@
+# Instincts generated from https://github.com/Luckyyaduvanshiofficial/rankllms
+# Generated: 2026-04-07T07:55:37.794Z
+# Version: 2.0
+# NOTE: This file supplements (does not replace) any existing curated instincts.
+# High-confidence manually curated instincts should be preserved alongside these.
+
+---
+id: rankllms-commit-length
+trigger: "when writing a commit message"
+confidence: 0.6
+domain: git
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Commit Length
+
+## Action
+
+Write moderate-length commit messages (~52 characters)
+
+## Evidence
+
+- Average commit message length: 52 chars
+- Based on 3 commits
+
+---
+id: rankllms-naming-files
+trigger: "when creating a new file"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Naming Files
+
+## Action
+
+Use camelCase naming convention
+
+## Evidence
+
+- Analyzed file naming patterns in repository
+- Dominant pattern: camelCase
+
+---
+id: rankllms-import-relative
+trigger: "when importing modules"
+confidence: 0.75
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Import Relative
+
+## Action
+
+Use relative imports for project files
+
+## Evidence
+
+- Import analysis shows relative import pattern
+- Example: import { x } from '../lib/x'
+
+---
+id: rankllms-export-style
+trigger: "when exporting from a module"
+confidence: 0.7
+domain: code-style
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Export Style
+
+## Action
+
+Prefer default exports
+
+## Evidence
+
+- Export pattern analysis
+- Dominant style: default
+
+---
+id: rankllms-arch-type-based
+trigger: "when adding new code"
+confidence: 0.8
+domain: architecture
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Arch Type Based
+
+## Action
+
+Place code in the appropriate type folder (components/, services/, utils/, etc.)
+
+## Evidence
+
+- Type-based module organization detected
+- Folders: 
+
+---
+id: rankllms-workflow-frontend-feature-development
+trigger: "when doing frontend feature development"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Workflow Frontend Feature Development
+
+## Action
+
+Follow the frontend-feature-development workflow:
+1. Edit or create React components in frontend/src/components/
+2. Edit or create Astro pages/layouts in frontend/src/pages/ and frontend/src/layouts/
+3. Update global styles in frontend/src/styles/global.css
+4. Update configuration in frontend/astro.config.mjs, frontend/package.json, or frontend/tsconfig.json
+5. Update lock files (frontend/yarn.lock) if dependencies changed
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: frontend/src/components/*.tsx, frontend/src/pages/**/*.astro, frontend/src/layouts/*.astro
+
+---
+id: rankllms-workflow-backend-api-update-and-test
+trigger: "when doing backend api update and test"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Workflow Backend Api Update And Test
+
+## Action
+
+Follow the backend-api-update-and-test workflow:
+1. Edit backend/server.py to implement or update API logic
+2. Update backend/requirements.txt if dependencies change
+3. Edit or add backend/tests/test_api.py for test coverage
+4. Update backend/tests/__pycache__/* for test artifacts
+5. Update backend/__pycache__/* for compiled server code
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: backend/server.py, backend/requirements.txt, backend/tests/test_api.py
+
+---
+id: rankllms-workflow-test-report-generation
+trigger: "when doing test report generation"
+confidence: 0.6
+domain: workflow
+source: repo-analysis
+source_repo: https://github.com/Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Workflow Test Report Generation
+
+## Action
+
+Follow the test-report-generation workflow:
+1. Run tests (pytest, etc.)
+2. Generate or update test_reports/iteration_*.json
+3. Generate or update test_reports/pytest/pytest_results.xml
+
+## Evidence
+
+- Workflow detected from commit patterns
+- Frequency: ~2x per month
+- Files: test_reports/iteration_*.json, test_reports/pytest/pytest_results.xml
+
+---
+id: rankllms-instinct-file-naming
+trigger: "When creating or renaming files in the codebase"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct File Naming
+
+## Action
+
+Use camelCase for file names
+
+## Evidence
+
+- Pattern in architecture.namingConventions.files: camelCase
+
+---
+id: rankllms-instinct-function-naming
+trigger: "When defining functions"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Function Naming
+
+## Action
+
+Name functions using camelCase
+
+## Evidence
+
+- Pattern in architecture.namingConventions.functions: camelCase
+
+---
+id: rankllms-instinct-class-naming
+trigger: "When defining classes"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Class Naming
+
+## Action
+
+Name classes using PascalCase
+
+## Evidence
+
+- Pattern in architecture.namingConventions.classes: PascalCase
+
+---
+id: rankllms-instinct-constant-naming
+trigger: "When defining constants"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Constant Naming
+
+## Action
+
+Name constants using SCREAMING_SNAKE_CASE
+
+## Evidence
+
+- Pattern in architecture.namingConventions.constants: SCREAMING_SNAKE_CASE
+
+---
+id: rankllms-instinct-relative-imports
+trigger: "When importing modules in TypeScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Relative Imports
+
+## Action
+
+Use relative import paths
+
+## Evidence
+
+- Pattern in codeStyle.importStyle: relative
+
+---
+id: rankllms-instinct-default-exports
+trigger: "When exporting modules in TypeScript files"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Default Exports
+
+## Action
+
+Use default exports
+
+## Evidence
+
+- Pattern in codeStyle.exportStyle: default
+
+---
+id: rankllms-instinct-try-catch-error-handling
+trigger: "When handling errors in code"
+confidence: 0.8
+domain: code-style
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Try Catch Error Handling
+
+## Action
+
+Use try-catch blocks for error handling
+
+## Evidence
+
+- Pattern in errorHandling.style: try-catch
+
+---
+id: rankllms-instinct-backend-test-location
+trigger: "When adding or updating backend tests"
+confidence: 0.8
+domain: testing
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Backend Test Location
+
+## Action
+
+Place backend API tests in backend/tests/test_api.py
+
+## Evidence
+
+- Pattern in backend-api-update-and-test.filesInvolved: backend/tests/test_api.py
+
+---
+id: rankllms-instinct-test-artifacts-location
+trigger: "When generating test artifacts for backend tests"
+confidence: 0.7
+domain: testing
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Test Artifacts Location
+
+## Action
+
+Store test artifacts in backend/tests/__pycache__/
+
+## Evidence
+
+- Pattern in backend-api-update-and-test.filesInvolved: backend/tests/__pycache__/*
+
+---
+id: rankllms-instinct-test-report-json
+trigger: "When generating test reports after running tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Test Report Json
+
+## Action
+
+Output JSON reports to test_reports/iteration_*.json
+
+## Evidence
+
+- Pattern in test-report-generation.filesInvolved: test_reports/iteration_*.json
+
+---
+id: rankllms-instinct-test-report-xml
+trigger: "When generating test reports after running tests"
+confidence: 0.85
+domain: testing
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Test Report Xml
+
+## Action
+
+Output XML reports to test_reports/pytest/pytest_results.xml
+
+## Evidence
+
+- Pattern in test-report-generation.filesInvolved: test_reports/pytest/pytest_results.xml
+
+---
+id: rankllms-instinct-auto-commit-format
+trigger: "When committing changes to the repository"
+confidence: 0.9
+domain: git
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Auto Commit Format
+
+## Action
+
+Use commit messages in the format: 'auto-commit for <UUID>'
+
+## Evidence
+
+- Seen in commit: 'auto-commit for a7048ae3-ea07-4a53-a5a6-9c62811492d1'
+- Seen in commit: 'auto-commit for f332ee77-a58e-46f6-8566-2ad9bedd797e'
+- Seen in commit: 'auto-commit for d6345813-c6b3-4748-a344-d8af963c4ee6'
+
+---
+id: rankllms-instinct-frontend-feature-workflow
+trigger: "When someone wants to add or modify a frontend feature or page"
+confidence: 0.9
+domain: workflow
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Frontend Feature Workflow
+
+## Action
+
+Follow the workflow: edit/create React components (frontend/src/components/), edit/create Astro pages/layouts (frontend/src/pages/, frontend/src/layouts/), update global styles (frontend/src/styles/global.css), update config files (frontend/astro.config.mjs, frontend/package.json, frontend/tsconfig.json), update lock files (frontend/yarn.lock) if dependencies changed
+
+## Evidence
+
+- Pattern in workflows.frontend-feature-development
+- Files involved: frontend/src/components/*.tsx, frontend/src/pages/**/*.astro, etc.
+
+---
+id: rankllms-instinct-backend-api-workflow
+trigger: "When someone wants to add or modify backend API functionality"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Backend Api Workflow
+
+## Action
+
+Follow the workflow: edit backend/server.py, update backend/requirements.txt if dependencies change, edit/add backend/tests/test_api.py for test coverage, update backend/tests/__pycache__/* for test artifacts, update backend/__pycache__/* for compiled server code
+
+## Evidence
+
+- Pattern in workflows.backend-api-update-and-test
+- Files involved: backend/server.py, backend/requirements.txt, backend/tests/test_api.py, etc.
+
+---
+id: rankllms-instinct-test-report-workflow
+trigger: "When someone runs tests and wants to save or update test result reports"
+confidence: 0.85
+domain: workflow
+source: repo-analysis
+source_repo: Luckyyaduvanshiofficial/rankllms
+---
+
+# Rankllms Instinct Test Report Workflow
+
+## Action
+
+Follow the workflow: run tests, generate/update test_reports/iteration_*.json, generate/update test_reports/pytest/pytest_results.xml
+
+## Evidence
+
+- Pattern in workflows.test-report-generation
+- Files involved: test_reports/iteration_*.json, test_reports/pytest/pytest_results.xml
+
