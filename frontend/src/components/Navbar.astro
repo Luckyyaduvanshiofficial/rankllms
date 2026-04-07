@@ -1,0 +1,97 @@
+---
+const navLinks = [
+  { label: 'Leaderboard', href: '/leaderboard' },
+  { label: 'Blog', href: '/blog' },
+  { label: 'Compare', href: '/leaderboard#compare' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 border-b" style="background: rgba(26,26,26,0.95); border-color: rgba(255,255,255,0.08); backdrop-filter: blur(12px);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between h-16">
+
+      <!-- Logo -->
+      <a href="/" class="flex items-center gap-2 group" data-testid="nav-logo">
+        <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-black text-sm" style="background: linear-gradient(135deg, #f26e2a, #14b8a6);">
+          R
+        </div>
+        <span class="font-heading font-bold text-white text-lg tracking-tight">RankLLMs</span>
+      </a>
+
+      <!-- Nav Links (desktop) -->
+      <nav class="hidden md:flex items-center gap-1" data-testid="nav-links">
+        {navLinks.map(link => (
+          <a
+            href={link.href}
+            class={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+              currentPath.startsWith(link.href.split('#')[0]) && link.href !== '/'
+                ? 'text-white bg-white/10'
+                : 'text-[#a1a1aa] hover:text-white hover:bg-white/5'
+            }`}
+            data-testid={`nav-link-${link.label.toLowerCase()}`}
+          >
+            {link.label}
+          </a>
+        ))}
+      </nav>
+
+      <!-- CTA + Admin -->
+      <div class="flex items-center gap-3">
+        <a
+          href="/admin"
+          class="hidden md:block px-3 py-1.5 text-xs text-[#a1a1aa] hover:text-white transition-colors"
+          data-testid="nav-admin-link"
+        >
+          Admin
+        </a>
+        <a
+          href="/leaderboard"
+          class="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-colors"
+          style="background-color: #f26e2a;"
+          onmouseover="this.style.backgroundColor='#d95a1e'"
+          onmouseout="this.style.backgroundColor='#f26e2a'"
+          data-testid="nav-cta-button"
+        >
+          View Rankings
+        </a>
+
+        <!-- Mobile menu button -->
+        <button
+          id="mobile-menu-btn"
+          class="md:hidden p-2 text-[#a1a1aa] hover:text-white"
+          data-testid="nav-mobile-menu"
+          aria-label="Toggle menu"
+        >
+          <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+            <path d="M2 5h16M2 10h16M2 15h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile menu -->
+    <div id="mobile-menu" class="hidden md:hidden pb-4 border-t border-white/10 pt-3 mt-1">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="block px-4 py-2.5 text-sm text-[#a1a1aa] hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/admin" class="block px-4 py-2.5 text-sm text-[#a1a1aa] hover:text-white hover:bg-white/5 rounded-lg transition-colors">
+        Admin
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  btn?.addEventListener('click', () => {
+    menu?.classList.toggle('hidden');
+  });
+</script>

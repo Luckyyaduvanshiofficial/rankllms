@@ -1,0 +1,88 @@
+---
+const year = new Date().getFullYear();
+
+const columns = [
+  {
+    title: 'PRODUCT',
+    links: [
+      { label: 'Leaderboard', href: '/leaderboard' },
+      { label: 'Compare Models', href: '/leaderboard#compare' },
+      { label: 'Blog', href: '/blog' },
+    ]
+  },
+  {
+    title: 'RESOURCES',
+    links: [
+      { label: 'Guides', href: '/blog?category=Guides' },
+      { label: 'LLM Basics', href: '/blog?category=LLM+Basics' },
+      { label: 'Comparisons', href: '/blog?category=Comparisons' },
+    ]
+  },
+  {
+    title: 'COMPANY',
+    links: [
+      { label: 'About', href: '#' },
+      { label: 'Contact', href: '#' },
+    ]
+  },
+  {
+    title: 'LEGAL',
+    links: [
+      { label: 'Privacy', href: '#' },
+      { label: 'Terms', href: '#' },
+    ]
+  }
+];
+---
+
+<footer style="background-color: #111111; border-top: 1px solid rgba(255,255,255,0.06);">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <!-- Top row -->
+    <div class="grid grid-cols-2 md:grid-cols-6 gap-8 mb-12">
+      <!-- Brand col -->
+      <div class="col-span-2">
+        <a href="/" class="flex items-center gap-2 mb-4">
+          <div class="w-8 h-8 rounded-lg flex items-center justify-center text-white font-black text-sm" style="background: linear-gradient(135deg, #f26e2a, #14b8a6);">
+            R
+          </div>
+          <span class="font-heading font-bold text-white text-lg">RankLLMs</span>
+        </a>
+        <p class="text-sm leading-relaxed" style="color: #71717a; max-width: 240px;">
+          The most comprehensive LLM benchmark and comparison platform.
+        </p>
+      </div>
+
+      <!-- Links cols -->
+      {columns.map(col => (
+        <div>
+          <h4 class="text-xs font-semibold tracking-wider mb-4" style="color: #52525b;">{col.title}</h4>
+          <ul class="space-y-3">
+            {col.links.map(link => (
+              <li>
+                <a
+                  href={link.href}
+                  class="text-sm transition-colors"
+                  style="color: #a1a1aa;"
+                  onmouseover="this.style.color='#ffffff'"
+                  onmouseout="this.style.color='#a1a1aa'"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+
+    <!-- Bottom row -->
+    <div class="flex flex-col md:flex-row items-center justify-between pt-8" style="border-top: 1px solid rgba(255,255,255,0.06);">
+      <p class="text-sm" style="color: #52525b;">© {year} RankLLMs. All rights reserved.</p>
+      <div class="flex items-center gap-6 mt-4 md:mt-0">
+        <span class="text-xs px-2 py-1 rounded font-mono" style="background: rgba(242,110,42,0.1); color: #f26e2a; border: 1px solid rgba(242,110,42,0.2);">
+          Updated Feb 2026
+        </span>
+      </div>
+    </div>
+  </div>
+</footer>

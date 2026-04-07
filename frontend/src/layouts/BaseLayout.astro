@@ -1,0 +1,48 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  theme?: 'dark' | 'light';
+  ogImage?: string;
+}
+
+const {
+  title = 'RankLLMs - AI Model Leaderboard & Comparisons',
+  description = 'Compare and rank the best LLMs. Real benchmarks, pricing, and speed data for GPT-4, Claude, Gemini, and more.',
+  theme = 'dark',
+  ogImage = ''
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="en" class={theme === 'light' ? 'light-theme' : 'dark-theme'}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/favicon.ico" />
+    <title>{title}</title>
+
+    <!-- Google Fonts: Geist + Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Geist via npm CDN alternative -->
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap');
+    </style>
+  </head>
+
+  <body style={theme === 'light' ? 'background-color: #F8F7F4; color: #111827;' : 'background-color: #1a1a1a; color: #ffffff;'}>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @import '../styles/global.css';
+</style>
